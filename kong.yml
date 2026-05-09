@@ -38,7 +38,7 @@ basicauth_credentials:
 services:
   ## Open Auth routes
   - name: auth-v1-open
-    url: http://${SUPABASE_AUTH_HOST}:9999/verify
+    url: http://$SUPABASE_AUTH_HOST:9999/verify
     routes:
       - name: auth-v1-open
         strip_path: true
@@ -47,7 +47,7 @@ services:
     plugins:
       - name: cors
   - name: auth-v1-open-callback
-    url: http://${SUPABASE_AUTH_HOST}:9999/callback
+    url: http://$SUPABASE_AUTH_HOST:9999/callback
     routes:
       - name: auth-v1-open-callback
         strip_path: true
@@ -56,7 +56,7 @@ services:
     plugins:
       - name: cors
   - name: auth-v1-open-authorize
-    url: http://${SUPABASE_AUTH_HOST}:9999/authorize
+    url: http://$SUPABASE_AUTH_HOST:9999/authorize
     routes:
       - name: auth-v1-open-authorize
         strip_path: true
@@ -65,7 +65,7 @@ services:
     plugins:
       - name: cors
   - name: auth-v1-open-jwks
-    url: http://${SUPABASE_AUTH_HOST}:9999/.well-known/jwks.json
+    url: http://$SUPABASE_AUTH_HOST:9999/.well-known/jwks.json
     routes:
       - name: auth-v1-open-jwks
         strip_path: true
@@ -74,7 +74,7 @@ services:
     plugins:
       - name: cors
   - name: auth-v1-open-sso-acs
-    url: "http://${SUPABASE_AUTH_HOST}:9999/sso/saml/acs"
+    url: "http://$SUPABASE_AUTH_HOST:9999/sso/saml/acs"
     routes:
       - name: auth-v1-open-sso-acs
         strip_path: true
@@ -83,7 +83,7 @@ services:
     plugins:
       - name: cors
   - name: auth-v1-open-sso-metadata
-    url: "http://${SUPABASE_AUTH_HOST}:9999/sso/saml/metadata"
+    url: "http://$SUPABASE_AUTH_HOST:9999/sso/saml/metadata"
     routes:
       - name: auth-v1-open-sso-metadata
         strip_path: true
@@ -94,7 +94,7 @@ services:
 
   ## Secure Auth routes
   - name: auth-v1
-    url: http://${SUPABASE_AUTH_HOST}:9999/
+    url: http://$SUPABASE_AUTH_HOST:9999/
     routes:
       - name: auth-v1-all
         strip_path: true
@@ -122,7 +122,7 @@ services:
 
   ## Secure PostgREST routes
   - name: rest-v1
-    url: http://${SUPABASE_REST_HOST}:3000/
+    url: http://$SUPABASE_REST_HOST:3000/
     routes:
       - name: rest-v1-all
         strip_path: true
@@ -150,7 +150,7 @@ services:
 
   ## Secure GraphQL routes
   - name: graphql-v1
-    url: http://${SUPABASE_REST_HOST}:3000/rpc/graphql
+    url: http://$SUPABASE_REST_HOST:3000/rpc/graphql
     routes:
       - name: graphql-v1-all
         strip_path: true
@@ -179,7 +179,7 @@ services:
 
   ## Secure Realtime routes
   - name: realtime-v1-ws
-    url: http://${SUPABASE_REALTIME_HOST}:4000/socket
+    url: http://$SUPABASE_REALTIME_HOST:4000/socket
     protocol: ws
     routes:
       - name: realtime-v1-ws
@@ -207,7 +207,7 @@ services:
             - anon
 
   - name: realtime-v1-rest
-    url: http://${SUPABASE_REALTIME_HOST}:4000/api
+    url: http://$SUPABASE_REALTIME_HOST:4000/api
     protocol: http
     routes:
       - name: realtime-v1-rest
@@ -236,7 +236,7 @@ services:
 
   ## Storage API endpoint
   - name: storage-v1
-    url: http://${SUPABASE_STORAGE_HOST}:5000/
+    url: http://$SUPABASE_STORAGE_HOST:5000/
     routes:
       - name: storage-v1-all
         strip_path: true
@@ -263,7 +263,7 @@ services:
 
   ## Edge Functions routes
   - name: functions-v1
-    url: http://${SUPABASE_FUNCTIONS_HOST}:9000/
+    url: http://$SUPABASE_FUNCTIONS_HOST:9000/
     read_timeout: 150000
     routes:
       - name: functions-v1-all
@@ -275,7 +275,7 @@ services:
 
   ## OAuth 2.0 Authorization Server Metadata (RFC 8414)
   - name: well-known-oauth
-    url: http://${SUPABASE_AUTH_HOST}:9999/.well-known/oauth-authorization-server
+    url: http://$SUPABASE_AUTH_HOST:9999/.well-known/oauth-authorization-server
     routes:
       - name: well-known-oauth
         strip_path: true
@@ -286,7 +286,7 @@ services:
 
   ## Secure pg-meta routes (admin-only)
   - name: meta
-    url: http://${SUPABASE_META_HOST}:8080/
+    url: http://$SUPABASE_META_HOST:8080/
     routes:
       - name: meta-all
         strip_path: true
@@ -304,7 +304,7 @@ services:
 
   ## Block direct access to /api/mcp
   - name: mcp-blocker
-    url: http://${SUPABASE_STUDIO_HOST}:3000/api/mcp
+    url: http://$SUPABASE_STUDIO_HOST:3000/api/mcp
     routes:
       - name: mcp-blocker-route
         strip_path: true
@@ -318,7 +318,7 @@ services:
 
   ## MCP endpoint - blocked by default
   - name: mcp
-    url: http://${SUPABASE_STUDIO_HOST}:3000/api/mcp
+    url: http://$SUPABASE_STUDIO_HOST:3000/api/mcp
     routes:
       - name: mcp
         strip_path: true
@@ -332,7 +332,7 @@ services:
 
   ## Protected Dashboard - catch all remaining routes
   - name: dashboard
-    url: http://${SUPABASE_STUDIO_HOST}:3000/
+    url: http://$SUPABASE_STUDIO_HOST:3000/
     routes:
       - name: dashboard-all
         strip_path: true
